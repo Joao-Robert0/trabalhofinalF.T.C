@@ -1,0 +1,8 @@
+Q: S1 S2 S3 S4 I F
+I
+F
+I -> S2 | p
+S2 -> S3 | a
+S3 -> F | o
+S4 -> F | a
+---
