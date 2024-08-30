@@ -1,8 +1,8 @@
 class Automato:
-    def __init__(self, estados, estado_inicial, estado_final):
+    def __init__(self, estados, estado_inicial, estados_finais):
         self.estados = estados
         self.estado_inicial = estado_inicial
-        self.estado_final = estado_final
+        self.estados_finais = estados_finais
         self.transicoes = {}
 
     def adicionar_transicao(self, de, simbolo, para):
@@ -21,7 +21,7 @@ class Automato:
                 print('Erro: Transição inválida')
                 return False
 
-        return estado_atual == self.estado_final
+        return estado_atual in self.estados_finais
 
     @staticmethod
     def carregar_de_arquivo(caminho_arquivo):
@@ -33,12 +33,12 @@ class Automato:
         estados = set(partes)
 
         # Lê o estado inicial
-        estado_inicial = linhas[1].strip()
+        estado_inicial = linhas[1].strip().split()[1]
 
-        # Lê o estado final
-        estado_final = linhas[2].strip()
+        # Lê os estados finais
+        estados_finais = set(linhas[2].strip().split()[1:])
 
-        automato = Automato(estados, estado_inicial, estado_final)
+        automato = Automato(estados, estado_inicial, estados_finais)
 
         # Lê as transições
         for linha in linhas[3:]:
@@ -48,18 +48,15 @@ class Automato:
             estado_de = partes[0].strip()
             transicao = partes[1].split('|')
             estado_para = transicao[0].strip()
-            simbolos = transicao[1].strip().split()
-
-            for simbolo in simbolos:
-                automato.adicionar_transicao(estado_de, simbolo, estado_para)
+            simbolo = transicao[1].strip()
+            automato.adicionar_transicao(estado_de, simbolo, estado_para)
 
         return automato
 
-
 if __name__ == "__main__":
     try:
-        automato = Automato.carregar_de_arquivo("automato.txt")
-        entrada = "pao"  # Entrada a ser processada
+        automato = Automato.carregar_de_arquivo("testes/teste0.txt")
+        entrada = "apo"  # Entrada a ser processada
         aceita = automato.processar_entrada(entrada)
 
         if aceita:
