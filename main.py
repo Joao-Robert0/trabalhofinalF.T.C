@@ -1,4 +1,4 @@
-class Automato:
+class AFD:
     def __init__(self, estados, estado_inicial, estados_finais):
         self.estados = estados
         self.estado_inicial = estado_inicial
@@ -38,7 +38,7 @@ class Automato:
         # Lê os estados finais
         estados_finais = set(linhas[2].strip().split()[1:])
 
-        automato = Automato(estados, estado_inicial, estados_finais)
+        automato = AFD(estados, estado_inicial, estados_finais)
 
         # Lê as transições
         for linha in linhas[3:]:
@@ -55,7 +55,7 @@ class Automato:
 
 if __name__ == "__main__":
     try:
-        automato = Automato.carregar_de_arquivo("testes/teste0.txt")
+        automato = AFD.carregar_de_arquivo("testes/teste0.txt")
         entrada = "apo"  # Entrada a ser processada
         aceita = automato.processar_entrada(entrada)
 
