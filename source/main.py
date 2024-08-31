@@ -1,6 +1,16 @@
-from AFD import AFD
-from MT import MT
+from PySide6.QtWidgets import QApplication
+from controller.MainWindowController import MainWindowController
+from model.AFD import AFD
+from model.Moore import Moore
+from model.MT import MT
 import sys
+
+def runGraphicalInterface():
+    app = QApplication(sys.argv)  # Cria a aplicação Qt
+    window = MainWindowController()  # Cria uma instância do controlador
+    window.show()  # Exibe a janela principal
+    sys.exit(app.exec())  # Inicia o loop de eventos da aplicação
+
 
 if __name__ == "__main__":
     try:
@@ -8,9 +18,7 @@ if __name__ == "__main__":
         caminhoArquivo = None
 
         if(sys.argv[-1] == "-g"):
-            # Insira aqui código da interface gráfica
-            print("Em breve modo gráfico")
-            sys.exit()
+            runGraphicalInterface()
 
         print("Olá, seja bem vindo, selecione qual autômato você deseja utilizar :");
         print("1) Autômato Finito Determinístico")
@@ -27,7 +35,7 @@ if __name__ == "__main__":
             "1":lambda: AFD.carregar_de_arquivo("testes/teste0.txt"),
             "2":lambda: print("Autômato de pilha ainda não implementado"),
             "3":lambda: print("Máquina de Mealy ainda não implementada"),
-            "4":lambda: print("Máquina de Moore ainda não implementada"),
+            "4":lambda: Moore.carregar_de_arquivo("testes/testeMoore.txt"),
             "5":lambda: MT.carregar_de_arquivo("testes/testeMT.txt")
         }
         automato = dicionario.get(opçao)();
