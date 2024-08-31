@@ -1,5 +1,5 @@
 class MT:
-    # Construtor da classe AFD, inicializa os estados, estado inicial, estados finais e transições
+    # Construtor da classe MT, inicializa os estados, estado inicial, estados finais e transições
     def __init__(self, estados, alfabeto_entrada, alfabeto_fita, estado_inicial, estados_finais):
         self.alfabeto_entrada = alfabeto_entrada  # Alfabeto de entrada do autômato
         self.alfabeto_fita = alfabeto_fita # Alfabeto da fita do autômato
@@ -32,12 +32,13 @@ class MT:
         fita = ['<'] + list(entrada)  # Adiciona o símbolo < no início da fita e converte a entrada em uma lista de caracteres para simular a fita
         posicao = 1 # Posição inicial na fita
 
-        while estado_atual not in self.estados_finais and fita[posicao] != "<":  # Continua até alcançar um estado final
+        while estado_atual not in self.estados_finais:  # Continua até alcançar um estado final
+            estado_anterior = estado_atual  # Salva o estado anterior
             simbolo_atual = fita[posicao]  # Lê o símbolo atual na fita
             if estado_atual in self.transicoes and simbolo_atual in self.transicoes[estado_atual]:  # Se há uma transição válida
                 simbolo_escrito, direcao, estado_atual = self.transicoes[estado_atual][simbolo_atual]  # Obtém a transição
                 fita[posicao] = simbolo_escrito  # Escreve o símbolo na fita
-                print(f'Transição: {simbolo_atual} -> {simbolo_escrito}, Estado: {estado_atual}, Direção: {direcao}')  # Imprime a transição
+                print(f'Transição: {estado_anterior} -> {estado_atual}, Estado: {simbolo_escrito}, Direção: {direcao}')  # Imprime a transição
                 if direcao == 'D':  # Move para a direita
                     posicao += 1
                 elif direcao == 'E':  # Move para a esquerda
@@ -50,9 +51,8 @@ class MT:
             else:
                 print('Erro: Transição inválida')  # Se não há transição válida, imprime erro
                 return False  # Retorna False indicando que a entrada não foi aceita
-
         print("Fita final:", "".join(fita)[1:-1])  # Imprime a fita final
-        return True  # Retorna True indicando que a entrada foi aceita
+        return estado_atual in self.estados_finais  # Retorna True indicando que a entrada foi aceita
     
     # Método estático para carregar um autômato de um arquivo
     @staticmethod
@@ -94,8 +94,8 @@ class MT:
 if __name__ == "__main__":
     try:
         automato = MT.carregar_de_arquivo("testes/testeMT.txt")
-        entrada = "111111"  # Entrada a ser processada
-        entrada += "$"  # Adiciona o símbolo de fim de fita
+        entrada = "10"  # Entrada a ser processada
+        entrada += "_"  # Adiciona o símbolo de fim de fita
         aceita = automato.processar_entrada(entrada)
 
         if aceita:

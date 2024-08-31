@@ -11,8 +11,7 @@ class AFD:
         if de not in self.transicoes:  # Se o estado de origem não tem transições ainda
             self.transicoes[de] = {}  # Inicializa o dicionário de transições para este estado
         self.transicoes[de][simbolo] = para  # Adiciona a transição para o estado de destino
-        print(self.transicoes)  # Imprime a transição
-
+        
     # Método para processar uma entrada no autômato
     def processar_entrada(self, entrada):
         estado_atual = self.estado_inicial  # Começa no estado inicial
