@@ -398,7 +398,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="stopButton">
     <property name="geometry">
      <rect>
       <x>190</x>
@@ -429,7 +429,7 @@
    <zorder>rLabel</zorder>
    <zorder>vLabel</zorder>
    <zorder>cauldronLabel</zorder>
-   <zorder>pushButton</zorder>
+   <zorder>stopButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -1,13 +1,16 @@
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import (QMovie, QPixmap)
 from PySide6.QtCore import QTimer
-from view.AfdWindowView import Ui_afdWindow  # Certifique-se de que o nome da view esteja correto
+from view.AfdWindowView import Ui_afdWindow
+from controller.ProductWindowController import ProductWindowController
 
 class AFDWindowController(QMainWindow):
     def __init__(self):
         super(AFDWindowController, self).__init__()
         self.ui = Ui_afdWindow()
         self.ui.setupUi(self)
+
+        self.productWindow = None #Janela com o resultado da função
 
         #Gif do caldeirão
         self.movie = QMovie("./assets/Caldeirão.gif")
@@ -23,15 +26,18 @@ class AFDWindowController(QMainWindow):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.moveImage)
         
-        # Conecte os botões da janela AFD a funções se necessário
-        self.ui.aButton.clicked.connect(self.aButtonClicked)
-        self.ui.bButton.clicked.connect(self.bButtonClicked)
-        self.ui.dButton.clicked.connect(self.dButtonClicked)
-        self.ui.mButton.clicked.connect(self.mButtonClicked)
-        self.ui.oButton.clicked.connect(self.oButtonClicked)
-        self.ui.pButton.clicked.connect(self.pButtonClicked)
-        self.ui.rButton.clicked.connect(self.rButtonClicked)
-        self.ui.vButton.clicked.connect(self.vButtonClicked)
+        #            Botões dos ingredientes               #
+        self.ui.aButton.clicked.connect(self.aButtonClicked)  # Agua  
+        self.ui.bButton.clicked.connect(self.bButtonClicked)  # Asa de Borboleta
+        self.ui.dButton.clicked.connect(self.dButtonClicked)  # Dedos Humanos
+        self.ui.mButton.clicked.connect(self.mButtonClicked)  # Asa de Morcego
+        self.ui.oButton.clicked.connect(self.oButtonClicked)  # Pó de ossos
+        self.ui.pButton.clicked.connect(self.pButtonClicked)  # Pétalas
+        self.ui.rButton.clicked.connect(self.rButtonClicked)  # Rabo de rato
+        self.ui.vButton.clicked.connect(self.vButtonClicked)  # Veneno de cobra
+        # ================================================ #
+        
+        self.ui.stopButton.clicked.connect(self.stopButtonClicked) # Mostra a poção produzida
 
     def aButtonClicked(self):
         imagePath = "./assets/waterbottle.png"
@@ -88,8 +94,11 @@ class AFDWindowController(QMainWindow):
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
-
-
+    
+    def stopButtonClicked(self):
+        if self.productWindow is None:
+            self.productWindow = ProductWindowController()
+        self.productWindow.show()
 
     #Método que vai mover a imagem
     def moveImage(self):

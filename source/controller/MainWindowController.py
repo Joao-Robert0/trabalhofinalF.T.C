@@ -14,7 +14,7 @@ class MainWindowController(QMainWindow):
         self.ui.mooreButton.clicked.connect(self.moore_button_clicked)
         self.ui.mealyButton.clicked.connect(self.mealy_button_clicked)
 
-        self.afdWindow = None; #Essa aqui vai ser a janela do AFD
+        self.afdWindow = None #Essa aqui vai ser a janela do AFD
 
     def afd_button_clicked(self):
         print("AFD Button clicked - Caldeirão Finito Deterministico")
