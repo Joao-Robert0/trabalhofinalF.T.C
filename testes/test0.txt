@@ -1,0 +1,10 @@
+Q: I F ERRO
+I: I
+F: F
+I -> I | A/λ/XX
+I -> F | B/X/λ
+F -> F | B/X/λ
+F -> ERRO | A/λ/λ
+ERRO -> ERRO | B/λ/λ
+ERRO -> ERRO | B/λ/λ
+---

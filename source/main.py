@@ -1,5 +1,6 @@
 from AFD import AFD
 from MT import MT
+from APD import AP
 import sys
 
 if __name__ == "__main__":
@@ -25,7 +26,7 @@ if __name__ == "__main__":
 
         dicionario = {
             "1":lambda: AFD.carregar_de_arquivo("testes/teste0.txt"),
-            "2":lambda: print("Autômato de pilha ainda não implementado"),
+            "2":lambda: AP.leitura_arquivo("testes/test0.txt"),
             "3":lambda: print("Máquina de Mealy ainda não implementada"),
             "4":lambda: print("Máquina de Moore ainda não implementada"),
             "5":lambda: MT.carregar_de_arquivo("testes/testeMT.txt")
