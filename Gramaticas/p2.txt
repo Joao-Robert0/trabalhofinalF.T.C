@@ -9,10 +9,4 @@ elem -> F | b
 elem -> erro | a d m o p r v
 F -> erro | a b d m o p r v
 erro -> erro |a b d m o p r v
-dfsdfsdfdsf
-sdf
-sdfsdf
-sdffsd
-fsd
-fsdf
-sdfsdff
+---

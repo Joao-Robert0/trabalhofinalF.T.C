@@ -11,3 +11,4 @@ elem -> erro | a b d m p v
 F -> F | o
 F -> erro | a b d m p r v
 erro -> erro |a b d m o p r v
+---

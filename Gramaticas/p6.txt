@@ -10,3 +10,4 @@ Q2 -> a b d o p r v
 F -> Q1 | a 
 F -> b d m o p r v
 erro -> erro |a b d m o p r v
+---

@@ -15,4 +15,6 @@ ele4 -> ele5 | d
 ele4 -> erro | a b m o p r v
 ele5 -> F | o 
 ele5 -> erro | a b d m p r v
+F -> erro | a b d m o p r v
 erro -> erro | a b d m o p r v
+---

@@ -10,5 +10,6 @@ elem -> erro |a b d m o r v
 F -> F | p
 F -> erro |a b d m o r v 
 erro -> erro |a b d m o p r v
+---
 
 

@@ -2,7 +2,7 @@ Q: I Q1 Q2 Q3 Q4 Q5 Q6 erro F
 I: I 
 F: F erro
 I -> Q1 | p
-I -> Q2 | a 
+I -> Q3 | a 
 I -> Q5 | v
 I -> erro | b d m o r
 Q1 -> Q2 | a
@@ -19,4 +19,4 @@ Q6 -> F | p
 Q6 -> erro | a b d m o r v
 F -> erro |a b d m o p r v
 erro -> erro |a b d m o p r v
-
+---
