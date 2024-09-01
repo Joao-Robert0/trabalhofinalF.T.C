@@ -1,31 +1,32 @@
-import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QMainWindow
 from view.MainWindowView import Ui_mainWindow
+from controller.AfdWindowController import AFDWindowController
 
 class MainWindowController(QMainWindow):
     def __init__(self):
-        super().__init__()
-        self.ui = Ui_mainWindow()  # Instancia a classe da interface
-        self.ui.setupUi(self)  # Configura a interface no QMainWindow
+        super(MainWindowController, self).__init__()
+        self.ui = Ui_mainWindow()
+        self.ui.setupUi(self)
 
-        # Conecta os botões às funções do controlador
+        # Conecte os botões às suas funções
         self.ui.afdButton.clicked.connect(self.afd_button_clicked)
         self.ui.apdButton.clicked.connect(self.apd_button_clicked)
         self.ui.mooreButton.clicked.connect(self.moore_button_clicked)
         self.ui.mealyButton.clicked.connect(self.mealy_button_clicked)
 
+        self.afdWindow = None; #Essa aqui vai ser a janela do AFD
+
     def afd_button_clicked(self):
-        print("Botão AFD clicado!")
-        # Aqui você pode adicionar a lógica específica para o botão AFD
+        print("AFD Button clicked - Caldeirão Finito Deterministico")
+        if self.afdWindow is None:
+            self.afdWindow = AFDWindowController()
+        self.afdWindow.show()
 
     def apd_button_clicked(self):
-        print("Botão APD clicado!")
-        # Aqui você pode adicionar a lógica específica para o botão APD
+        print("APD Button clicked - Caldeirão de Pilha Deterministico")
 
     def moore_button_clicked(self):
-        print("Botão Moore clicado!")
-        # Aqui você pode adicionar a lógica específica para o botão Moore
+        print("Moore Button clicked - Calculadora de Moore")
 
     def mealy_button_clicked(self):
-        print("Botão Mealy clicado!")
-        # Aqui você pode adicionar a lógica específica para o botão Mealy
+        print("Mealy Button clicked - Calculadora de Mealy")
