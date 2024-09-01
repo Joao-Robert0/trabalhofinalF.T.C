@@ -1,0 +1,22 @@
+Q: I Q1 Q2 Q3 Q4 Q5 Q6 erro F
+I: I 
+F: F erro
+I -> Q1 | p
+I -> Q2 | a 
+I -> Q5 | v
+I -> erro | b d m o r
+Q1 -> Q2 | a
+Q1 -> erro | b d m o p r v
+Q2 -> F | v 
+Q2 -> erro | a b d m o p r 
+Q3 -> Q4 | p
+q3 -> erro | a b d m o r v
+Q4 -> F | v
+Q4 -> erro | a b d m o p r 
+Q5 -> Q6 | a
+Q5 -> erro | b d m o p r v
+Q6 -> F | p
+Q6 -> erro | a b d m o r v
+F -> erro |a b d m o p r v
+erro -> erro |a b d m o p r v
+

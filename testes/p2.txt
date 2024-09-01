@@ -1,0 +1,18 @@
+Q: I dilu elem erro F
+I: I 
+F: F erro
+I -> dilu | b
+I -> erro | a d m o p r v
+dilu -> elem | a
+dilu -> erro | b d m o p r v 
+elem -> F | b
+elem -> erro | a d m o p r v
+F -> erro | a b d m o p r v
+erro -> erro |a b d m o p r v
+dfsdfsdfdsf
+sdf
+sdfsdf
+sdffsd
+fsd
+fsdf
+sdfsdff
