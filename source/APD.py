@@ -60,6 +60,7 @@ class AP:
     def processar_entrada(self, entrada):
         estado_atual = self.estado_inicial
         self.pilha = []
+        entrada = entrada.upper()
         
         for simbolo in entrada:
             if self.verifica_simbolo(simbolo) and estado_atual in self.transicoes and simbolo in self.transicoes[estado_atual]:
@@ -91,42 +92,3 @@ class AP:
         else:
             print(f"Poção de {self.receita} com a quantidade errada de ingredientes")
             return False
-
-def main():
-    # Carrega o autômato a partir do arquivo AP_teste.txt
-    
-    automato = AP.leitura_arquivo("AP_teste.txt")
-    #automato = AP.leitura_arquivo("Pocao_Invisibilidade.txt")
-    
-    # Testando o processamento de uma entrada inválida
-    entrada_valida = "rrmm&"
-    entrada_valida = entrada_valida.upper()
-    print(f"Testando entrada: {entrada_valida}")
-    resultado = automato.processar_entrada(entrada_valida)
-    if resultado:
-        print("Entrada válida.\n")
-    else:
-        print("Entrada inválida.\n")
-
-    # Testando o processamento de uma entrada válida
-    entrada_invalida = "lllppp"
-    entrada_invalida = entrada_invalida.upper()
-    print(f"Testando entrada: {entrada_invalida}")
-    resultado = automato.processar_entrada(entrada_invalida)
-    if resultado:
-        print("Entrada válida.\n")
-    else:
-        print("Entrada inválida.\n")
-
-    # Testando outra entrada
-    entrada = "rmllpp"
-    entrada = entrada.upper()
-    print(f"Testando entrada: {entrada}")
-    resultado = automato.processar_entrada(entrada)
-    if resultado:
-        print("Entrada válida.\n")
-    else:
-        print("Entrada inválida.\n")
-
-if __name__ == "__main__":
-    main()
