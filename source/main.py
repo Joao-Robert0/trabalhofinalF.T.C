@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QApplication
 from controller.MainWindowController import MainWindowController
+from assets import assets_rc
 from model.AFD import AFD
 from model.Moore import Moore
 from model.MT import MT
