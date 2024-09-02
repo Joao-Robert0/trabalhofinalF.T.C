@@ -23,6 +23,7 @@ class Ui_mainWindow(object):
         if not mainWindow.objectName():
             mainWindow.setObjectName(u"mainWindow")
         mainWindow.resize(315, 249)
+        mainWindow.setMinimumSize(QSize(315, 249))
         mainWindow.setMaximumSize(QSize(315, 249))
         mainWindow.setLocale(QLocale(QLocale.Portuguese, QLocale.Brazil))
         self.centralwidget = QWidget(mainWindow)
@@ -45,18 +46,6 @@ class Ui_mainWindow(object):
 
         self.menuLayout.addWidget(self.apdButton)
 
-        self.mooreButton = QPushButton(self.verticalLayoutWidget)
-        self.mooreButton.setObjectName(u"mooreButton")
-        self.mooreButton.setMaximumSize(QSize(239, 24))
-
-        self.menuLayout.addWidget(self.mooreButton)
-
-        self.mealyButton = QPushButton(self.verticalLayoutWidget)
-        self.mealyButton.setObjectName(u"mealyButton")
-        self.mealyButton.setMaximumSize(QSize(239, 24))
-
-        self.menuLayout.addWidget(self.mealyButton)
-
         mainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(mainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -71,7 +60,5 @@ class Ui_mainWindow(object):
         mainWindow.setWindowTitle(QCoreApplication.translate("mainWindow", u"Trabalho Final de F.T.C", None))
         self.afdButton.setText(QCoreApplication.translate("mainWindow", u"Caldeir\u00e3o Finito Deterministico", None))
         self.apdButton.setText(QCoreApplication.translate("mainWindow", u"Caldeir\u00e3o de Pilha Deterministico", None))
-        self.mooreButton.setText(QCoreApplication.translate("mainWindow", u"Calculadora de Moore", None))
-        self.mealyButton.setText(QCoreApplication.translate("mainWindow", u"Calculadora de Mealy", None))
     # retranslateUi
 
