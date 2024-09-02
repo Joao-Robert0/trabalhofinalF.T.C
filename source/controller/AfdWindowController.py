@@ -17,8 +17,6 @@ class AFDWindowController(QMainWindow):
 
         self.productWindow = None #Janela com o resultado da função
 
-        
-
         #Gif do caldeirão
         self.movie = QMovie("./source/assets/Caldeirão.gif")
         self.ui.cauldronLabel.setMovie(self.movie)

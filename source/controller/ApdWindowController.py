@@ -3,12 +3,17 @@ from PySide6.QtGui import (QMovie, QPixmap)
 from PySide6.QtCore import QTimer
 from view.ApdWindowView import Ui_apdWindow
 from controller.ProductWindowController import ProductWindowController
+from controller.ApdRecipeWindowController import ApdRecipeWindowController
+import model.SharedData
 
 class APDWindowController(QMainWindow):
     def __init__(self):
         super(APDWindowController, self).__init__()
         self.ui = Ui_apdWindow()
         self.ui.setupUi(self)
+
+        self.apdRecipeWindow = ApdRecipeWindowController() #Janela que vai permitir escolher a receita
+        self.apdRecipeWindow.show()
 
         self.productWindow = None #Janela com o resultado da função
 
