@@ -24,6 +24,7 @@ class MT:
 
    # Método para processar uma entrada no autômato
     def processar_entrada(self, entrada):
+        entrada += "_"  # Adiciona o símbolo de fim de fita
         if not self.verificar_entrada(entrada):
             return False
         
@@ -95,7 +96,7 @@ if __name__ == "__main__":
     try:
         automato = MT.carregar_de_arquivo("testes/testeMT.txt")
         entrada = "10"  # Entrada a ser processada
-        entrada += "_"  # Adiciona o símbolo de fim de fita
+        print("Entrada:", entrada)
         aceita = automato.processar_entrada(entrada)
 
         if aceita:
