@@ -23,7 +23,7 @@ class ApdRecipeWindowController(QMainWindow):
       self.close()
 
     def restauracaoButtonClicked(self):
-      model.SharedData.recipePath = "Gramaticas/Pocao_Invisibilidade.txt"
+      model.SharedData.recipePath = "Gramaticas/Pocao_Tripla.txt"
       model.SharedData.recipeName = "a Poção de Restauração"
       if self.apdWindow is None:
         self.apdWindow = APDWindowController()

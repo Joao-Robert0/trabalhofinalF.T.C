@@ -16,7 +16,7 @@ class APDWindowController(QMainWindow):
         #self.apdRecipeWindow = ApdRecipeWindowController() Janela que vai permitir escolher a receita
         #self.apdRecipeWindow.show()
 
-        self.automato = AP.carregar_de_arquivo(model.SharedData.recipePath)
+        self.automato = AP.leitura_arquivo(model.SharedData.recipePath)
         self.productWindow = None #Janela com o resultado da função
 
         #Gif do caldeirão
@@ -48,7 +48,6 @@ class APDWindowController(QMainWindow):
 
     def aButtonClicked(self):
         self.automato.processar_simbolo("a")
-        
         imagePath = "./source/assets/waterbottle.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -112,6 +111,11 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
     
     def stopButtonClicked(self):
+        if self.automato.resultado_total() == True:
+            model.SharedData.sucessoFlag = True
+        else:
+            model.SharedData.sucessoFlag = False
+        
         if self.productWindow is None:
             self.productWindow = ProductWindowController()
         self.productWindow.show()
