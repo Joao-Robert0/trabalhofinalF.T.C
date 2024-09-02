@@ -9,6 +9,7 @@ class AP:
         self.receita = receita
         self.pilha = []
         
+        self.imprimir = []
         self.estado_atual_resultado = None
         
     def get_tam_pilha(self):
@@ -82,7 +83,7 @@ class AP:
             estado_atual = proximo_estado
             self.estado_atual_resultado = estado_atual
             
-            print(f"{estado_passado} -- {entrada.lower()} --> {estado_atual}")
+            self.imprimir.add(f"{estado_passado} -- {entrada.lower()}, {simbolo_desempilha} / {simbolo_empilha} --> {estado_atual}")
                 
         else:
             print(f"Ingrediente não presente na receita de {self.receita}")
@@ -90,6 +91,8 @@ class AP:
 
     def resultado_total(self):
         self.receita = self.receita.split(".txt")[0]
+        for i in range(len(self.imprimir)):
+            print(f"{self.imprimir[i]}")
         if self.estado_atual_resultado in self.estados_finais and len(self.pilha) == 0:
             print(f"Poção de {self.receita} realizada com sucesso")
             self.pilha = []
