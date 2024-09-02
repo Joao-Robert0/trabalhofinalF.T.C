@@ -83,7 +83,7 @@ class AP:
             estado_atual = proximo_estado
             self.estado_atual_resultado = estado_atual
             
-            self.imprimir.add(f"{estado_passado} -- {entrada.lower()}, {simbolo_desempilha} / {simbolo_empilha} --> {estado_atual}")
+            self.imprimir.append(f"{estado_passado} -- {entrada.lower()}, {simbolo_desempilha} / {simbolo_empilha} --> {estado_atual}")
                 
         else:
             print(f"Ingrediente não presente na receita de {self.receita}")
