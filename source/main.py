@@ -46,11 +46,12 @@ if __name__ == "__main__":
             automato.transitar_AFN(input("Insira a entrada a ser processada:\n"))
         elif opçao == "3":
             automato.processar_entrada(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
-            while automato.estado_atual_resultado != 'F':
+            while True:
                 print("Deseja inserir mais um ingrediente? (s/n)")
                 if input() == "n":
                     break
                 automato.processar_entrada(input("Qual ingrediete será inserido?\n"))
+            automato.resultado_total()
         else:
             entrada = input()  # Entrada a ser processada
             aceita = automato.processar_entrada(entrada)
