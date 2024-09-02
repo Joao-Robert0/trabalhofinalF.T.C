@@ -3,7 +3,8 @@ from PySide6.QtGui import (QMovie, QPixmap)
 from PySide6.QtCore import QTimer
 from view.ApdWindowView import Ui_apdWindow
 from controller.ProductWindowController import ProductWindowController
-from controller.ApdRecipeWindowController import ApdRecipeWindowController
+#from controller.ApdRecipeWindowController import ApdRecipeWindowController
+from APD import AP
 import model.SharedData
 
 class APDWindowController(QMainWindow):
@@ -12,9 +13,10 @@ class APDWindowController(QMainWindow):
         self.ui = Ui_apdWindow()
         self.ui.setupUi(self)
 
-        self.apdRecipeWindow = ApdRecipeWindowController() #Janela que vai permitir escolher a receita
-        self.apdRecipeWindow.show()
+        #self.apdRecipeWindow = ApdRecipeWindowController() Janela que vai permitir escolher a receita
+        #self.apdRecipeWindow.show()
 
+        self.automato = AP.carregar_de_arquivo(model.SharedData.recipePath)
         self.productWindow = None #Janela com o resultado da função
 
         #Gif do caldeirão
@@ -45,6 +47,8 @@ class APDWindowController(QMainWindow):
         self.ui.stopButton.clicked.connect(self.stopButtonClicked) # Mostra a poção produzida
 
     def aButtonClicked(self):
+        self.automato.processar_simbolo("a")
+        
         imagePath = "./source/assets/waterbottle.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -52,6 +56,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
     
     def bButtonClicked(self):
+        self.automato.processar_simbolo("b")
         imagePath="./source/assets/butterflywing.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -59,6 +64,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
     
     def dButtonClicked(self):
+        self.automato.processar_simbolo("d")
         imagePath="./source/assets/finger.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -66,6 +72,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
     
     def mButtonClicked(self):
+        self.automato.processar_simbolo("m")
         imagePath="./source/assets/batwing.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -73,6 +80,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
 
     def oButtonClicked(self):
+        self.automato.processar_simbolo("o")
         imagePath = "./source/assets/bonemeal.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -80,6 +88,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
     
     def pButtonClicked(self):
+        self.automato.processar_simbolo("p")
         imagePath="./source/assets/petals.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -87,6 +96,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
     
     def rButtonClicked(self):
+        self.automato.processar_simbolo("r")
         imagePath="./source/assets/rattail.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -94,6 +104,7 @@ class APDWindowController(QMainWindow):
         self.timer.start(50)
 
     def vButtonClicked(self):
+        self.automato.processar_simbolo("v")
         imagePath="./source/assets/snakevenom.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)

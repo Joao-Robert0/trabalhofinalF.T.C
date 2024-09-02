@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QMainWindow
 from view.MainWindowView import Ui_mainWindow
-from controller.AfdWindowController import AFDWindowController
-from controller.ApdWindowController import APDWindowController
+from controller.AfdRecipeWindowController import AfdRecipeWindowController
+from controller.ApdRecipeWindowController import ApdRecipeWindowController
 
 class MainWindowController(QMainWindow):
     def __init__(self):
@@ -21,13 +21,13 @@ class MainWindowController(QMainWindow):
     def afd_button_clicked(self):
         print("AFD Button clicked - Caldeirão Finito Deterministico")
         if self.afdWindow is None:
-            self.afdWindow = AFDWindowController()
+            self.afdWindow = AfdRecipeWindowController()
         self.afdWindow.show()
 
     def apd_button_clicked(self):
         print("APD Button clicked - Caldeirão de Pilha Deterministico")
         if self.apdWindow is None:
-            self.apdWindow = APDWindowController()
+            self.apdWindow = ApdRecipeWindowController()
         self.apdWindow.show()
         
         #self

@@ -3,7 +3,8 @@ from PySide6.QtGui import (QMovie, QPixmap)
 from PySide6.QtCore import QTimer
 from view.AfdWindowView import Ui_afdWindow
 from controller.ProductWindowController import ProductWindowController
-from controller.AfdRecipeWindowController import AfdRecipeWindowController
+#from controller.AfdRecipeWindowController import AfdRecipeWindowController
+from AFD import AFD
 import model.SharedData
 
 class AFDWindowController(QMainWindow):
@@ -12,8 +13,11 @@ class AFDWindowController(QMainWindow):
         self.ui = Ui_afdWindow()
         self.ui.setupUi(self)
 
-        self.afdRecipeWindow = AfdRecipeWindowController() #Janela que vai permitir escolher a receita
-        self.afdRecipeWindow.show()
+        #self.afdRecipeWindow = AfdRecipeWindowController() #Janela que vai permitir escolher a receita
+        #self.afdRecipeWindow.show()
+        
+        self.automato = AFD.carregar_de_arquivo(model.SharedData.recipePath)
+
 
         self.productWindow = None #Janela com o resultado da função
 
@@ -45,6 +49,7 @@ class AFDWindowController(QMainWindow):
         self.ui.stopButton.clicked.connect(self.stopButtonClicked) # Mostra a poção produzida
 
     def aButtonClicked(self):
+        self.automato.processar_simbolo("a")
         imagePath = "./source/assets/waterbottle.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -52,6 +57,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
     
     def bButtonClicked(self):
+        self.automato.processar_simbolo("b")
         imagePath="./source/assets/butterflywing.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -59,6 +65,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
     
     def dButtonClicked(self):
+        self.automato.processar_simbolo("d")
         imagePath="./source/assets/finger.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -66,6 +73,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
     
     def mButtonClicked(self):
+        self.automato.processar_simbolo("m")
         imagePath="./source/assets/batwing.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -73,6 +81,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
 
     def oButtonClicked(self):
+        self.automato.processar_simbolo("o")
         imagePath = "./source/assets/bonemeal.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -80,6 +89,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
     
     def pButtonClicked(self):
+        self.automato.processar_simbolo("p")
         imagePath="./source/assets/petals.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -87,6 +97,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
     
     def rButtonClicked(self):
+        self.automato.processar_simbolo("r")
         imagePath="./source/assets/rattail.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -94,6 +105,7 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
 
     def vButtonClicked(self):
+        self.automato.processar_simbolo("v")
         imagePath="./source/assets/snakevenom.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
@@ -101,9 +113,14 @@ class AFDWindowController(QMainWindow):
         self.timer.start(50)
     
     def stopButtonClicked(self):
+        if self.automato.estado_atual == "F":
+            model.SharedData.sucessoFlag = True
         if self.productWindow is None:
             self.productWindow = ProductWindowController()
+        self.automato.reiniciar()
+        model.SharedData.sucessoFlag = False
         self.productWindow.show()
+        
 
     #Método que vai mover a imagem
     def moveImage(self):
