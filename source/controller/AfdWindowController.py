@@ -3,6 +3,8 @@ from PySide6.QtGui import (QMovie, QPixmap)
 from PySide6.QtCore import QTimer
 from view.AfdWindowView import Ui_afdWindow
 from controller.ProductWindowController import ProductWindowController
+from controller.AfdRecipeWindowController import AfdRecipeWindowController
+import model.SharedData
 
 class AFDWindowController(QMainWindow):
     def __init__(self):
@@ -10,10 +12,15 @@ class AFDWindowController(QMainWindow):
         self.ui = Ui_afdWindow()
         self.ui.setupUi(self)
 
+        self.afdRecipeWindow = AfdRecipeWindowController() #Janela que vai permitir escolher a receita
+        self.afdRecipeWindow.show()
+
         self.productWindow = None #Janela com o resultado da função
 
+        
+
         #Gif do caldeirão
-        self.movie = QMovie("./assets/Caldeirão.gif")
+        self.movie = QMovie("./source/assets/Caldeirão.gif")
         self.ui.cauldronLabel.setMovie(self.movie)
         self.movie.start()
 
@@ -40,56 +47,56 @@ class AFDWindowController(QMainWindow):
         self.ui.stopButton.clicked.connect(self.stopButtonClicked) # Mostra a poção produzida
 
     def aButtonClicked(self):
-        imagePath = "./assets/waterbottle.png"
+        imagePath = "./source/assets/waterbottle.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
     
     def bButtonClicked(self):
-        imagePath="./assets/butterflywing.png"
+        imagePath="./source/assets/butterflywing.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
     
     def dButtonClicked(self):
-        imagePath="./assets/finger.png"
+        imagePath="./source/assets/finger.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
     
     def mButtonClicked(self):
-        imagePath="./assets/batwing.png"
+        imagePath="./source/assets/batwing.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
 
     def oButtonClicked(self):
-        imagePath = "./assets/bonemeal.png"
+        imagePath = "./source/assets/bonemeal.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
     
     def pButtonClicked(self):
-        imagePath="./assets/petals.png"
+        imagePath="./source/assets/petals.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
     
     def rButtonClicked(self):
-        imagePath="./assets/rattail.png"
+        imagePath="./source/assets/rattail.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)
         self.timer.start(50)
 
     def vButtonClicked(self):
-        imagePath="./assets/snakevenom.png"
+        imagePath="./source/assets/snakevenom.png"
         self.pixmap = QPixmap(imagePath)
         self.ui.ingredientLabel.setPixmap(self.pixmap)
         self.ui.ingredientLabel.setVisible(True)

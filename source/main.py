@@ -1,3 +1,5 @@
+from PySide6.QtWidgets import QApplication
+from controller.MainWindowController import MainWindowController
 from AFD import AFD
 from MT import MT
 from Mealy import Mealy
@@ -9,7 +11,6 @@ def runGraphicalInterface():
     window = MainWindowController()  # Cria uma instância do controlador
     window.show()  # Exibe a janela principal
     sys.exit(app.exec())  # Inicia o loop de eventos da aplicação
-
 
 if __name__ == "__main__":
     try:
