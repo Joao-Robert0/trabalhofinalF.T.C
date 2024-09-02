@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>pda</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="1" name="q1">
+			<x>276.0</x>
+			<y>345.0</y>
+			<initial/>
+		</state>
+		<state id="2" name="q2">
+			<x>421.0</x>
+			<y>345.0</y>
+			<final/>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>M</read>
+			<pop>X</pop>
+			<push/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>M</read>
+			<pop>X</pop>
+			<push/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>O</read>
+			<pop/>
+			<push>XX</push>
+		</transition>
+	</automaton>
+</structure>

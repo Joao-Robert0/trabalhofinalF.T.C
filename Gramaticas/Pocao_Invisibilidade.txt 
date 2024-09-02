@@ -1,0 +1,41 @@
+Q: I F ERRO
+I: I
+F: F
+I -> I | O/λ/VV
+I -> F | M/V/λ
+F -> F | M/V/λ
+F -> ERRO | O/λ/λ
+ERRO -> ERRO | O/λ/λ
+ERRO -> ERRO | M/λ/λ
+---
+
+Expressão:
+{O^(n) M^(2n) | n > 0}
+
+
+
+Poção de Invisibilidade
+
+Ingredientes:
+
+    M: Asas de Morcego - Um elemento volátil que reduz o nível de visibilidade. As asas de morcego, quando misturadas na proporção correta, 
+    tornam o usuário quase imperceptível aos olhos humanos.
+    
+    O: Pó de Ossos - Um pó estabilizador que, ao mesmo tempo que finaliza a poção, aumenta o nível de visibilidade. Esse ingrediente é essencial
+    para equilibrar a volatividade das Asas de Morcego, garantindo que a invisibilidade seja completa e duradoura.
+
+Descrição: A Poção de Invisibilidade é uma fórmula engenhosa que joga com o delicado equilíbrio entre a redução e o aumento da visibilidade. 
+Para prepará-la, é necessário misturar dois pares de Asas de Morcego(Empilha: XX) com uma porção de Pó de Ossos(Dempilha: X). As Asas de Morcego,
+por si só, reduzem drasticamente a visibilidade do usuário, quase o tornando invisível. No entanto, sem o Pó de Ossos, a mistura seria instável e 
+perigosa, podendo causar efeitos indesejados, como a invisibilidade parcial ou temporária.
+
+Quando corretamente balanceada, essa poção torna o usuário completamente invisível, permitindo-lhe passar despercebido mesmo em plena luz do dia. 
+É ideal para missões furtivas, espionagem ou simplesmente para evitar ser visto.
+
+Regras Especiais:
+
+    Mais de duas Asas de Morcego por Pó de Ossos: A poção se torna instável e o efeito de invisibilidade pode ser parcial ou falhar completamente, 
+    deixando o usuário visível em condições de luz intensa (Não desempilha tudo).
+    
+    Mais de um Pó de Ossos por duas Asas de Morcego: A poção perde sua eficácia, resultando em visibilidade aumentada, tornando o usuário ainda 
+    mais perceptível do que o normal (Não chega ao estado final).

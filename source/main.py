@@ -3,6 +3,7 @@ from AFN import AFN
 from MT import MT
 from Mealy import Mealy
 from Moore import Moore
+from APD import AP
 import sys
 
 if __name__ == "__main__":
@@ -28,7 +29,7 @@ if __name__ == "__main__":
         dicionario = {
             "1":lambda: AFD.carregar_de_arquivo("Gramaticas/p1.txt"),
             "2":lambda: AFN.ler_arquivo_AFN("Gramaticas/p1.txt"),
-            "3":lambda: print("Autômato de pilha ainda não implementado"),
+            "3":lambda: AP.leitura_arquivo("Gramaticas/Pocao_Invisibilidade.txt"),
             "4":lambda: Mealy.carregar_de_arquivo("testes/testeMealy.txt"),
             "5":lambda: Moore.carregar_de_arquivo("testes/testeMoore.txt"),
             "6":lambda: MT.carregar_de_arquivo("testes/testeMT.txt")
@@ -40,11 +41,17 @@ if __name__ == "__main__":
                 print("Deseja inserir mais um ingrediente? (s/n)")
                 if input() == "n":
                     break
-                automato.processar_simbolo(input("Qual ingrediente será inserido?\n"))
+                automato.processar_simbolo(input("Qual ingrediete será inserido?\n"))
         elif opçao == "2":
-            automato.transitar_AFN(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
+            automato.transitar_AFN(input("Insira a entrada a ser processada:\n"))
         elif opçao == "3":
-            print("Autômato de pilha ainda não implementado")
+            automato.processar_simbolo(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
+            
+            while automato.estado_atual != automato:
+                print("Deseja inserir mais um ingrediente? (s/n)")
+                if input() == "n":
+                    break
+                automato.processar_entrada(input("Qual ingrediete será inserido?\n"))
         else:
             entrada = input()  # Entrada a ser processada
             aceita = automato.processar_entrada(entrada)
