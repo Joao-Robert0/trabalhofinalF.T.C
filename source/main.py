@@ -40,9 +40,9 @@ if __name__ == "__main__":
                 print("Deseja inserir mais um ingrediente? (s/n)")
                 if input() == "n":
                     break
-                automato.processar_simbolo(input("Qual ingrediete será inserido?\n"))
+                automato.processar_simbolo(input("Qual ingrediente será inserido?\n"))
         elif opçao == "2":
-            automato.transitar_AFN(input("Insira a entrada a ser processada:\n"))
+            automato.transitar_AFN(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
         elif opçao == "3":
             print("Autômato de pilha ainda não implementado")
         else:
