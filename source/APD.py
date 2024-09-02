@@ -61,7 +61,6 @@ class AP:
 
     def processar_entrada(self, entrada):
         estado_atual = self.estado_inicial
-        self.pilha = []
         entrada = entrada.upper()
         
     
@@ -93,7 +92,9 @@ class AP:
         self.receita = self.receita.split(".txt")[0]
         if self.estado_atual_resultado in self.estados_finais and len(self.pilha) == 0:
             print(f"Poção de {self.receita} realizada com sucesso")
+            self.pilha = []
             return True
         else:
             print(f"Poção de {self.receita} com a quantidade errada de ingredientes")
+            self.pilha = []
             return False
