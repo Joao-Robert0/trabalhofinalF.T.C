@@ -30,40 +30,20 @@ class Ui_apdRecipeWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.formLayoutWidget = QWidget(self.centralwidget)
         self.formLayoutWidget.setObjectName(u"formLayoutWidget")
-        self.formLayoutWidget.setGeometry(QRect(60, 40, 181, 281))
+        self.formLayoutWidget.setGeometry(QRect(60, 40, 208, 281))
         self.formLayout = QFormLayout(self.formLayoutWidget)
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.vitalidadeButton = QPushButton(self.formLayoutWidget)
-        self.vitalidadeButton.setObjectName(u"vitalidadeButton")
-        self.vitalidadeButton.setMinimumSize(QSize(118, 24))
+        self.restauracaoButton = QPushButton(self.formLayoutWidget)
+        self.restauracaoButton.setObjectName(u"restauracaoButton")
+        self.restauracaoButton.setMinimumSize(QSize(118, 24))
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.vitalidadeButton)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.restauracaoButton)
 
-        self.asasButton = QPushButton(self.formLayoutWidget)
-        self.asasButton.setObjectName(u"asasButton")
+        self.invisibilidadeButton = QPushButton(self.formLayoutWidget)
+        self.invisibilidadeButton.setObjectName(u"invisibilidadeButton")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.asasButton)
-
-        self.miniaturizacaoButton = QPushButton(self.formLayoutWidget)
-        self.miniaturizacaoButton.setObjectName(u"miniaturizacaoButton")
-
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.miniaturizacaoButton)
-
-        self.sussurroButton = QPushButton(self.formLayoutWidget)
-        self.sussurroButton.setObjectName(u"sussurroButton")
-
-        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.sussurroButton)
-
-        self.metamorfoseButton = QPushButton(self.formLayoutWidget)
-        self.metamorfoseButton.setObjectName(u"metamorfoseButton")
-
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.metamorfoseButton)
-
-        self.percepcaoButton = QPushButton(self.formLayoutWidget)
-        self.percepcaoButton.setObjectName(u"percepcaoButton")
-
-        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.percepcaoButton)
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.invisibilidadeButton)
 
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
@@ -80,12 +60,8 @@ class Ui_apdRecipeWindow(object):
 
     def retranslateUi(self, apdRecipeWindow):
         apdRecipeWindow.setWindowTitle(QCoreApplication.translate("apdRecipeWindow", u"Recipe Window", None))
-        self.vitalidadeButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Elixir da Vitalidade", None))
-        self.asasButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Elixir das Asas Celestes", None))
-        self.miniaturizacaoButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Elixir da Miniaturiza\u00e7\u00e3o", None))
-        self.sussurroButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Po\u00e7\u00e3o do Sussurro Sombrio", None))
-        self.metamorfoseButton.setText(QCoreApplication.translate("apdRecipeWindow", u"N\u00e9ctar da Metamorfose", None))
-        self.percepcaoButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Elixir da Percep\u00e7\u00e3o Agu\u00e7ada", None))
+        self.restauracaoButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Po\u00e7\u00e3o de Invisibilidade", None))
+        self.invisibilidadeButton.setText(QCoreApplication.translate("apdRecipeWindow", u"Po\u00e7\u00e3o de Restaura\u00e7\u00e3o do Tempo", None))
         self.label.setText(QCoreApplication.translate("apdRecipeWindow", u"Escolha a Receita que voc\u00ea deseja fazer", None))
     # retranslateUi
 

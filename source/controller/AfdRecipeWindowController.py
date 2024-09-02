@@ -23,7 +23,6 @@ class AfdRecipeWindowController(QMainWindow):
    def asasButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p2.txt"
       model.SharedData.recipeName = "o Elixr das Asas Celestes"
-
       self.close()
 
    def miniaturizacaoButtonClicked(self):

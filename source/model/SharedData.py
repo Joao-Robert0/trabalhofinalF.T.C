@@ -1,4 +1,4 @@
 recipePath = ""
 recipeName = ""
-sucessoFlag = True
+sucessoFlag = None
 StackFlag = False
