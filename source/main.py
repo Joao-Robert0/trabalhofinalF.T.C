@@ -1,5 +1,8 @@
 from AFD import AFD
+from AFN import AFN
 from MT import MT
+from Mealy import Mealy
+from Moore import Moore
 from APD import AP
 import sys
 
@@ -15,30 +18,47 @@ if __name__ == "__main__":
 
         print("Olá, seja bem vindo, selecione qual autômato você deseja utilizar :");
         print("1) Autômato Finito Determinístico")
-        print("2) Autômato de Pilha Determinístico")
+        print("2) Autômato Finito Não Determinístico")
+        print("3) Autômato de Pilha Determinístico")
         print("==========Extras==========")
-        print("3)Máquina de Mealy")
-        print("4)Máquina de Moore")
-        print("5)Máquina de Turing")
-        opçao = input();
-        #caminhoArquivo = input("Insira o caminho do arquivo com a receita :")
-        #caminhoArquivo = "testes/teste0.txt"
+        print("4)Máquina de Mealy")
+        print("5)Máquina de Moore")
+        print("6)Máquina de Turing")
+        opçao = input()
 
         dicionario = {
-            "1":lambda: AFD.carregar_de_arquivo("testes/teste0.txt"),
-            "2":lambda: AP.leitura_arquivo("testes/test0.txt"),
-            "3":lambda: print("Máquina de Mealy ainda não implementada"),
-            "4":lambda: print("Máquina de Moore ainda não implementada"),
-            "5":lambda: MT.carregar_de_arquivo("testes/testeMT.txt")
+            "1":lambda: AFD.carregar_de_arquivo("Gramaticas/p1.txt"),
+            "2":lambda: AFN.ler_arquivo_AFN("Gramaticas/p1.txt"),
+            "3":lambda: AP.leitura_arquivo("Gramaticas/Pocao_Invisibilidade.txt"),
+            "4":lambda: Mealy.carregar_de_arquivo("testes/testeMealy.txt"),
+            "5":lambda: Moore.carregar_de_arquivo("testes/testeMoore.txt"),
+            "6":lambda: MT.carregar_de_arquivo("testes/testeMT.txt")
         }
         automato = dicionario.get(opçao)();
-        entrada = "apo"  # Entrada a ser processada
-        aceita = automato.processar_entrada(entrada)
-
-        if aceita:
-            print("Entrada aceita.")
+        if opçao == "1":
+            automato.processar_simbolo(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
+            while automato.estado_atual != "F":
+                print("Deseja inserir mais um ingrediente? (s/n)")
+                if input() == "n":
+                    break
+                automato.processar_simbolo(input("Qual ingrediete será inserido?\n"))
+        elif opçao == "2":
+            automato.transitar_AFN(input("Insira a entrada a ser processada:\n"))
+        elif opçao == "3":
+            automato.processar_simbolo(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
+            
+            while automato.estado_atual != automato:
+                print("Deseja inserir mais um ingrediente? (s/n)")
+                if input() == "n":
+                    break
+                automato.processar_entrada(input("Qual ingrediete será inserido?\n"))
         else:
-            print("Entrada rejeitada.")
+            entrada = input()  # Entrada a ser processada
+            aceita = automato.processar_entrada(entrada)
+            if aceita:
+                print("Entrada aceita.")
+            else:
+                print("Entrada rejeitada.")
     
     except FileNotFoundError:
         print("Erro: Arquivo não encontrado.")

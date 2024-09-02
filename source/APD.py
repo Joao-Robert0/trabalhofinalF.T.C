@@ -9,6 +9,8 @@ class AP:
         self.receita = receita
         self.pilha = []
         
+        self.estado_atual_resultado = None
+        
     def get_tam_pilha(self):
         return len(self.pilha)
     
@@ -62,31 +64,34 @@ class AP:
         self.pilha = []
         entrada = entrada.upper()
         
-        for simbolo in entrada:
-            if self.verifica_simbolo(simbolo) and estado_atual in self.transicoes and simbolo in self.transicoes[estado_atual]:
-                proximo_estado, simbolos_empilha, simbolos_desempilha = self.transicoes[estado_atual][simbolo]
-
-                for simbolo_desempilha in simbolos_desempilha:
-                    if (not self.pilha or self.pilha[len(self.pilha)-1] != simbolo_desempilha) and (simbolo_desempilha != 'λ'):
-                        print("Erro: símbolo a ser desempilhado não está no topo da pilha.")
-                        return False
-                    if simbolo_desempilha != 'λ':
-                        self.pilha.pop(len(self.pilha)-1)
-                    
-                for simbolo_empilha in simbolos_empilha:
-                    if simbolo_empilha != 'λ':
-                        self.pilha.append(simbolo_empilha)
-
-                estado_passado = estado_atual
-                estado_atual = proximo_estado
-                print(f"{estado_passado} -- {simbolo.lower()} --> {estado_atual}")
+    
+        if self.verifica_simbolo(entrada) and estado_atual in self.transicoes and entrada in self.transicoes[estado_atual]:
+            proximo_estado, simbolos_empilha, simbolos_desempilha = self.transicoes[estado_atual][entrada]
+            
+            for simbolo_desempilha in simbolos_desempilha:
+                if (not self.pilha or self.pilha[len(self.pilha)-1] != simbolo_desempilha) and (simbolo_desempilha != 'λ'):
+                    print("Erro: símbolo a ser desempilhado não está no topo da pilha.")
+                    return False
+                if simbolo_desempilha != 'λ':
+                    self.pilha.pop(len(self.pilha)-1)
                 
-            else:
-                print(f"Ingrediente não presente na receita de {self.receita}")
-                return False
-        
+            for simbolo_empilha in simbolos_empilha:
+                if simbolo_empilha != 'λ':
+                    self.pilha.append(simbolo_empilha)
+            
+            estado_passado = estado_atual
+            estado_atual = proximo_estado
+            self.estado_atual_resultado = estado_atual
+            
+            print(f"{estado_passado} -- {entrada.lower()} --> {estado_atual}")
+                
+        else:
+            print(f"Ingrediente não presente na receita de {self.receita}")
+            return False
+
+    def resultado_total(self):
         self.receita = self.receita.split(".txt")[0]
-        if estado_atual in self.estados_finais and len(self.pilha) == 0:
+        if self.estado_atual_resultado in self.estados_finais and len(self.pilha) == 0:
             print(f"Poção de {self.receita} realizada com sucesso")
             return True
         else:
