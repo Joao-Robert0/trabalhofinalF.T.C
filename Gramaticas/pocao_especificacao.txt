@@ -7,3 +7,4 @@ ing1 -> erro | o
 ing2 -> F | p
 ing2 -> erro | o
 F -> erro | o
+---

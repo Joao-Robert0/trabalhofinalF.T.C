@@ -27,7 +27,7 @@ if __name__ == "__main__":
         opçao = input()
 
         dicionario = {
-            "1":lambda: AFD.carregar_de_arquivo("Gramaticas/p1.txt"),
+            "1":lambda: AFD.carregar_de_arquivo("Gramaticas/pocao_especificacao.txt"),
             "2":lambda: AFN.ler_arquivo_AFN("Gramaticas/p1.txt"),
             "3":lambda: AP.leitura_arquivo("Gramaticas/Pocao_Invisibilidade.txt"),
             "4":lambda: Mealy.carregar_de_arquivo("testes/testeMealy.txt"),
@@ -43,7 +43,12 @@ if __name__ == "__main__":
                     break
                 automato.processar_simbolo(input("Qual ingrediete será inserido?\n"))
         elif opçao == "2":
-            automato.transitar_AFN(input("Insira a entrada a ser processada:\n"))
+            automato.transitar_AFN(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
+            while "F" not in automato.estados_atuais:
+                print("Deseja inserir mais um ingrediente? (s/n)")
+                if input() == "n":
+                    break
+                automato.transitar_AFN(input("Qual ingrediente será inserido?\n"))
         elif opçao == "3":
             automato.processar_entrada(input("Insira o simbolo do primeiro ingrediente da receita:\n "))
             while True:
