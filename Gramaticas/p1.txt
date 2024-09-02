@@ -4,12 +4,12 @@ F: F erro
 I -> dilu | a
 I -> erro | b d m o p r v 
 dilu -> elem | p
-dilu -> erro |a b d m o r v 
+dilu -> erro | a b d m o r v 
 elem -> F | p
-elem -> erro |a b d m o r v 
+elem -> erro | a b d m o r v 
 F -> F | p
-F -> erro |a b d m o r v 
-erro -> erro |a b d m o p r v
+F -> erro | a b d m o r v 
+erro -> erro | a b d m o p r v
 ---
 
 

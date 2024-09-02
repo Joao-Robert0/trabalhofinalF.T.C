@@ -1,0 +1,132 @@
+Q: I F E1 E2 E3 ERRO
+I: I
+F: F
+I -> E1 | V/λ/N
+I -> E3 | O/λ/XXXX
+I -> ERRO | B/λ/λ
+I -> ERRO | D/λ/λ
+I -> ERRO | A/λ/λ
+E1 -> E1 | V/λ/N
+E1 -> E2 | B/NN/λ
+E1 -> ERRO | O/λ/λ
+E1 -> ERRO | D/λ/λ
+E1 -> ERRO | A/λ/λ
+E2 -> E2 | B/NN/λ
+E2 -> E3 | O/λ/XXXX
+E2 -> F | A/λ/λ
+E2 -> ERRO | D/λ/λ
+E2 -> ERRO | V/λ/λ
+E3 -> E3 | O/λ/XXXX
+E3 -> F | D/XXXXXX/λ
+E3 -> ERRO | V/λ/λ
+E3 -> ERRO | B/λ/λ
+E3 -> ERRO | A/λ/λ
+F -> F | D/XXXXXX/λ
+F -> ERRO | V/λ/λ
+F -> ERRO | B/λ/λ
+F -> ERRO | O/λ/λ
+F -> ERRO | A/λ/λ
+---
+
+Expressão:
+{V^(2n) B^(n) O^(6x) D^(4x) | n & x >= 0}
+
+
+
+A: Agua
+V: Veneno de Cobra
+O: Pó de ossos
+D: Dedos Humanos
+B: Assas de Borboleta
+
+Agua usada apenas para finalizar a poção da metade um, sendo necessária usa-lá por ultimo, se deseja obter a poção da metade 1
+
+Poção metade 1 (Poção de Envelheciemnto):
+Veneno de cobra,Asas Borboleta e agua
+2 Venenos de cobra para uma asa de borboleta
+Agua usada apenas para finalizar a poção da metade um, sendo necessária usa-lá por ultimo, se deseja obter a poção da metade 1
+Se tiver mais de dois venenos para uma asa de borboleta, a poção irá tornar quem a bebe em uma múmia
+Se tiver mais de uma asa de borboleta para cada 2 venenos, a poção não terá efeito.
+
+Poção metade 2 (Poção de Força):
+Pó de osso e dedos de Humanos
+3 pó de osso para 2 dedos de Humanos
+Se tiver mais de 3 pó de ossos para cada 2 dedos humanos, quem tomar sofrerá com efeitos de extrema força, porém, perderá a consiencia
+Se houver mais de 2 dedos humanos para cada 3 po de ossos, quem tomar sofrerá com efeitos de extrema fraqueza, da qual nem consegue ficar sentado
+
+Poção Total (Poção de retardamento do tempo):
+Veneno de cobra, Pó de ossos, Dedos humanos e Asas de morcego
+Respeitar ambas as regras das poções fragmentadas
+
+------
+
+Ingredientes:
+
+    A: Água - Um elemento neutro que é utilizado para finalizar certas poções, estabilizando a mistura e permitindo que os ingredientes 
+    atinjam seu potencial máximo.
+    
+    V: Veneno de Cobra - Um ingrediente mortal que, em grandes quantidades, pode ter efeitos devastadores. Quando utilizado corretamente,
+    ele pode alterar drasticamente a natureza da poção.
+    
+    O: Pó de Ossos - Um pó macabro, extraído de ossos triturados, que fornece força e durabilidade à poção.
+    
+    D: Dedos Humanos - Um ingrediente sombrio e raro, infundido com energias poderosas, que confere grande poder à poção, mas pode ter efeitos
+    colaterais perigosos.
+    
+    B: Asas de Borboleta - Um ingrediente delicado, usado para dar leveza e suavidade às poções, mas que precisa ser equilibrado com cuidado 
+    para evitar efeitos indesejados.
+
+
+1. Poção Metade 1: Poção de Envelhecimento
+
+Ingredientes: Veneno de Cobra (V), Asas de Borboleta (B), Água (A)
+
+Descrição: A Poção de Envelhecimento é uma mistura delicada e perigosa que deve ser preparada com extremo cuidado. Ela requer dois Veneno
+           de Cobra para cada Asa de Borboleta, criando um equilíbrio entre a letalidade do veneno e a suavidade das asas. Quando preparada 
+           corretamente, a poção provoca um envelhecimento acelerado no indivíduo que a consome, fazendo com que décadas passem em minutos. 
+           No entanto, a Água deve ser adicionada por último, pois ela estabiliza a poção e permite que o efeito ocorra de forma controlada.
+
+Regras Especiais:
+
+    Mais de dois Venenos de Cobra por Asa de Borboleta: A poção se torna instável e transforma o usuário em uma múmia viva, presa em um estado
+    de decomposição eterna.
+    
+    Mais de uma Asa de Borboleta por dois Venenos de Cobra: A poção perde todo o seu efeito, se tornando completamente inócua.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+2. Poção Metade 2: Poção de Força
+
+Ingredientes: Pó de Ossos (O), Dedos Humanos (D)
+
+Descrição: A Poção de Força é uma mistura poderosa, capaz de conferir ao usuário uma força sobre-humana. Ela exige três porções de Pó de Ossos
+           para cada dois Dedos Humanos, formando uma combinação que potencializa a força física ao extremo. Quando ingerida, essa poção concede
+           ao usuário a força necessária para realizar feitos hercúleos, como levantar enormes rochas ou derrubar portas de ferro.
+
+Regras Especiais:
+
+    Mais de três Pó de Ossos por dois Dedos Humanos: A poção causa uma força tão extrema que o usuário perde a consciência, incapaz de controlar
+    o poder que agora possui.
+    
+    Mais de dois Dedos Humanos por três Pó de Ossos: A poção inverte seus efeitos, causando uma fraqueza tão profunda que o usuário se torna 
+    incapaz até de se sentar sem auxílio.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+3. Poção Total: Poção de Retardamento do Tempo
+
+Ingredientes: Veneno de Cobra (V), Pó de Ossos (O), Dedos Humanos (D), Asas de Borboleta (B)
+
+Descrição: A Poção de Retardamento do Tempo é uma das fórmulas mais complexas e poderosas conhecidas, exigindo precisão absoluta em sua preparação. 
+           Ela combina o Veneno de Cobra, o Pó de Ossos, os Dedos Humanos e as Asas de Borboleta, seguindo as regras rigorosas das poções fragmentadas. 
+           Quando preparada corretamente, essa poção desacelera drasticamente o fluxo do tempo para o usuário, permitindo que minutos se tornem horas. 
+           O usuário pode experimentar a passagem do tempo a um ritmo reduzido, ganhando vantagem sobre seus inimigos ou completando tarefas com precisão 
+           cirúrgica.
+
+Regras Especiais:
+
+    Respeitar as regras da Poção de Envelhecimento: O equilíbrio entre o Veneno de Cobra e as Asas de Borboleta é crucial. Qualquer desvio resultará
+    em efeitos catastróficos, como envelhecimento acelerado ou ineficácia total da poção.
+    
+    Respeitar as regras da Poção de Força: O equilíbrio entre o Pó de Ossos e os Dedos Humanos também é essencial. Se a mistura for desbalanceada, 
+    o usuário pode se tornar excessivamente forte a ponto de perder a consciência ou tão fraco que mal consegue se mover.
