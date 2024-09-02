@@ -1,0 +1,13 @@
+Q: I Q1 Q2 erro F
+I: I 
+F: F erro
+I -> Q1 | a 
+I -> erro | b d m o p r v
+Q1 -> Q2 | m
+Q1 -> erro | a b d o p r v
+Q2 -> F | m 
+Q2 -> a b d o p r v
+F -> Q1 | a 
+F -> b d m o p r v
+erro -> erro |a b d m o p r v
+---
