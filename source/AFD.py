@@ -5,26 +5,33 @@ class AFD:
         self.estado_inicial = estado_inicial  # Estado inicial do autômato
         self.estados_finais = estados_finais  # Conjunto de estados finais do autômato
         self.transicoes = {}  # Dicionário para armazenar as transições
+        self.estado_atual = estado_inicial
 
     # Método para adicionar uma transição ao autômato
     def adicionar_transicao(self, de, simbolo, para):
         if de not in self.transicoes:  # Se o estado de origem não tem transições ainda
             self.transicoes[de] = {}  # Inicializa o dicionário de transições para este estado
         self.transicoes[de][simbolo] = para  # Adiciona a transição para o estado de destino
-        
+        print(self.transicoes)  # Imprime a transição
+
     # Método para processar uma entrada no autômato
-    def processar_entrada(self, entrada):
-        estado_atual = self.estado_inicial  # Começa no estado inicial
+    def processar_simbolo(self, simbolo):
+        if self.estado_atual in self.transicoes and simbolo in self.transicoes[self.estado_atual]:  # Se há uma transição válida
+            self.estado_atual = self.transicoes[self.estado_atual][simbolo]  # Move para o próximo estado
+            print(f'Transição: {simbolo} -> Estado: {self.estado_atual}')  # Imprime a transição
+        else:
+            print('Erro: Transição inválida')  # Se não há transição válida, imprime erro
+            return False  # Retorna False indicando que o símbolo não foi aceito
+        return True  # Retorna True indicando que a transição foi realizada com sucesso
 
-        for simbolo in entrada:  # Para cada símbolo na entrada
-            if estado_atual in self.transicoes and simbolo in self.transicoes[estado_atual]:  # Se há uma transição válida
-                estado_atual = self.transicoes[estado_atual][simbolo]  # Move para o próximo estado
-                print(f'Transição: {simbolo} -> Estado: {estado_atual}')  # Imprime a transição
-            else:
-                print('Erro: Transição inválida')  # Se não há transição válida, imprime erro
-                return False  # Retorna False indicando que a entrada não foi aceita
+    # Método para verificar se o estado atual é um estado final
+    def verificar_estado_final(self):
+        return self.estado_atual in self.estados_finais  # Retorna True se o estado atual é um estado final
 
-        return estado_atual in self.estados_finais  # Retorna True se o estado final é um estado de aceitação
+    # Método para reiniciar o autômato para o estado inicial
+    def reiniciar(self):
+        self.estado_atual = self.estado_inicial  # Reseta o estado atual para o estado inicial
+
 
     # Método estático para carregar um autômato de um arquivo
     @staticmethod
