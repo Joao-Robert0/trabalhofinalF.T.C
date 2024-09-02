@@ -9,11 +9,26 @@ class ProductWindowController(QMainWindow):
         self.ui = Ui_ProductWindow()
         self.ui.setupUi(self)
 
-        if model.SharedData.sucessoFlag == False:
+        if model.SharedData.StackFlag == True:
             imagePath = "./source/assets/failedpotion.png"
-            self.ui.descriptionLabel.setText("Você não misturou os itens corretamente !")
             self.pixmap = QPixmap(imagePath)
             self.ui.productLabel.setPixmap(self.pixmap)
+            self.ui.descriptionLabel.setText("A sua poção está muito tóxica !")
+
+        elif model.SharedData.sucessoFlag == False:
+            imagePath = "./source/assets/failedpotion.png"
+            self.pixmap = QPixmap(imagePath)
+            self.ui.productLabel.setPixmap(self.pixmap)
+            self.ui.descriptionLabel.setText("Você não misturou os itens corretamente !")
+
+        elif model.SharedData.sucessoFlag == True:
+            imagePath = "./source/assets/product.png"
+            sucessString = "Vc produziu "+ model.SharedData.recipeName
+            self.pixmap = QPixmap(imagePath)
+            self.ui.productLabel.setPixmap(self.pixmap)
+            self.ui.descriptionLabel.setText(sucessString)
+        #elif model.SharedData.sucessoFlag == True :
+               
         
         # TODO: Lógica para a mudança da imagem em caso de sucesso
         # TODO: Lógica para a mudança do Label em caso de sucesso

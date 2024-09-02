@@ -17,24 +17,31 @@ class AfdRecipeWindowController(QMainWindow):
    
    def vitalidadeButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p1.txt"
+      model.SharedData.recipeName = "o Elixr da Vitalidade"
       self.close()
 
    def asasButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p2.txt"
+      model.SharedData.recipeName = "o Elixr das Asas Celestes"
+
       self.close()
 
    def miniaturizacaoButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p3.txt"
+      model.SharedData.recipeName = "o Elixir da Miniaturização"
       self.close()
 
    def sussurroButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p4.txt"
+      model.SharedData.recipeName = "a Poção do Sussurro Sombrio"
       self.close()
 
    def metamorfoseButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p5.txt"
+      model.SharedData.recipeName = "o Néctar da Metamorfose"
       self.close()
 
    def percepcaoButtonClicked(self):
       model.SharedData.recipePath = "Gramaticas/p6.txt"
+      model.SharedData.recipeName = "o Elixir da Percepção Aguçada"
       self.close()
